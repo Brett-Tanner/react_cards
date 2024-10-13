@@ -1,9 +1,9 @@
-import { GameOptions } from "./components/setup/GameOptions";
+import { GameSetup } from "./components/GameSetup";
 
 function App() {
 	return (
 		<>
-			<GameOptions />
+			<GameSetup />
 		</>
 	);
 }
