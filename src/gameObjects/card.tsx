@@ -120,7 +120,7 @@ export class Card {
 	}
 }
 
-type cardColor =
+export type cardColor =
 	| "light-blue"
 	| "black"
 	| "blue"

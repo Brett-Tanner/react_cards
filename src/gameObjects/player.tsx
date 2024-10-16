@@ -1,8 +1,10 @@
+import { Card } from "./card";
+
 export class Player {
-	hand: card[];
+	hand: Card[];
 	id: number;
 	name: string;
-	playedCards: card[];
+	playedCards: Card[];
 	score: number;
 
 	constructor(id: number, name = "", hand = [], playedCards = [], score = 0) {

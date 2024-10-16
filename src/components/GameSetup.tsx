@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Player } from "../gameObjects/player";
 import { PlayerForm } from "./PlayerForm";
+import { prepareDeck } from "../gameObjects/baseDeck";
 
 export function GameSetup() {
 	const [players, setPlayers] = useState<Player[]>([new Player(1)]);
@@ -39,7 +40,7 @@ export function GameSetup() {
 
 			{players.length < 4 && <button onClick={addPlayer}>Add Player</button>}
 
-			<button>Start Game!</button>
+			<button onClick={() => console.log(prepareDeck())}>Start Game!</button>
 		</main>
 	);
 }

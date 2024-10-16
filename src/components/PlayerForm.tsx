@@ -25,7 +25,7 @@ export function PlayerForm({ player, setPlayers }: props) {
 				name={`player${player.id}name`}
 				id={`player${player.id}name`}
 				onChange={(e) => updateName(e.target.value)}
-				className="text-center"
+				className="text-center border-2 border-black rounded outline-none focus:outline-black p-1"
 			/>
 
 			{player.id > 1 && <button onClick={removePlayer}>Remove</button>}
