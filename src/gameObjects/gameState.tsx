@@ -1,16 +1,16 @@
 import { prepareDeck } from "./baseDeck";
 import { Card } from "./card";
 
-export class Game {
+export class GameState {
 	deck: Card[];
 	discardLeft: Card[];
 	discardRight: Card[];
-	started: boolean;
+	stage: "setup" | "draw" | "action";
 
 	constructor() {
 		this.deck = prepareDeck();
 		this.discardLeft = [];
 		this.discardRight = [];
-		this.started = false;
+		this.stage = "setup";
 	}
 }
