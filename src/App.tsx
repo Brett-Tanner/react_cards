@@ -21,6 +21,7 @@ function App() {
 			<Board
 				players={players}
 				gameState={gameState}
+				setPlayers={setPlayers}
 				setGameState={setGameState}
 			/>
 		);
