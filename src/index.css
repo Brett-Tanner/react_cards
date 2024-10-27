@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+	@apply border-2 border-solid border-black rounded py-2 px-4;
+}
