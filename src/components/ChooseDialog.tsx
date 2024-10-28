@@ -3,6 +3,7 @@ import { shuffle } from "../gameObjects/baseDeck";
 import { Card } from "../gameObjects/card";
 import { GameState } from "../gameObjects/gameState";
 import { Player } from "../gameObjects/player";
+import { RevealedCard } from "./RevealedCard";
 
 interface props {
 	activePlayer: Player;
@@ -39,10 +40,14 @@ export function ChooseDialog({
 			: discardRemaining(remainingCards);
 
 		dialog.current?.close();
+
+		setGameState((state) => {
+			return { ...state, stage: "action" };
+		});
 	}
 
 	function shuffleRemaining(remainingCards: Card[]) {
-		return setGameState((state) => {
+		setGameState((state) => {
 			return { ...state, deck: shuffle(state.deck.concat(remainingCards)) };
 		});
 	}
@@ -75,12 +80,14 @@ export function ChooseDialog({
 	}
 
 	return (
-		<dialog ref={dialog}>
-			<header>Choose a card to keep</header>
-			<ul>
+		<dialog className="h-4/5 w-4/5" ref={dialog}>
+			<header className="h-1/6 flex items-center justify-center text-3xl text-center border-b-2 border-solid p-3">
+				Choose a card to keep
+			</header>
+			<ul className="h-5/6 flex justify-center items-center basis-1/6 grow-0 gap-6 p-6">
 				{choices.map((card) => (
-					<li key={card.id} onClick={() => addToHand(card)}>
-						Name: {card.name}, Color: {card.color}
+					<li key={card.id} onClick={() => addToHand(card)} className="h-full">
+						<RevealedCard card={card} />
 					</li>
 				))}
 			</ul>

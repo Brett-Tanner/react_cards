@@ -6,7 +6,7 @@ export class GameState {
 	deck: Card[];
 	discardLeft: Card[];
 	discardRight: Card[];
-	stage: "setup" | "draw" | "action";
+	stage: "setup" | "draw" | "choosing" | "action";
 
 	constructor() {
 		this.activePlayerId = 1;

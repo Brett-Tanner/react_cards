@@ -25,7 +25,11 @@ export function Board({ players, gameState, setPlayers, setGameState }: props) {
 			});
 		});
 		setGameState((gameState) => {
-			return { ...gameState, deck: gameState.deck.slice(0, -2) };
+			return {
+				...gameState,
+				deck: gameState.deck.slice(0, -2),
+				stage: "choosing",
+			};
 		});
 	}
 
@@ -59,9 +63,11 @@ export function Board({ players, gameState, setPlayers, setGameState }: props) {
 						className={`col-start-3 row-start-1 flex flex-col items-center justify-center border-2 rounded ${deck.length === 0 ? "border-dashed" : "border-solid"}`}
 					>
 						<p>{deck.length} cards remaining</p>
-						<button className="btn" onClick={() => draw(deck)}>
-							Draw!
-						</button>
+						{gameState.stage === "draw" && (
+							<button className="btn" onClick={() => draw(deck)}>
+								Draw!
+							</button>
+						)}
 					</div>
 					<div
 						className={`col-start-2 row-start-2 border-2 rounded ${discardLeft.length === 0 ? "border-dashed" : "border-solid"}`}
